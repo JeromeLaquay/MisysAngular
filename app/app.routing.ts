@@ -2,14 +2,16 @@
 
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
+import { ListeproduitComponent } from './listeproduit/index';
 import { RegisterComponent } from './register/index';
-import { TypepComponent } from './typep/index';
 import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'produits', component: ListeproduitComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

@@ -9,11 +9,12 @@ import { routing }        from './app.routing';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptorProvider, ErrorInterceptorProvider } from './_helpers/index';
-import { AlertService, AuthenticationService, UserService, TypepService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, TypepService, UtilisateurService, ProduitService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { TypepComponent } from './typep/index';
+import { ListeproduitComponent } from './listeproduit/index';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { TypepComponent } from './typep/index';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        TypepComponent
+        TypepComponent,
+        ListeproduitComponent
     ],
     providers: [
         AuthGuard,
@@ -36,6 +38,8 @@ import { TypepComponent } from './typep/index';
         AuthenticationService,
         UserService,
         TypepService,
+        UtilisateurService,
+        ProduitService,
         JwtInterceptorProvider,
         ErrorInterceptorProvider
     ],

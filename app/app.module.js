@@ -20,6 +20,7 @@ var index_5 = require("./home/index");
 var index_6 = require("./login/index");
 var index_7 = require("./register/index");
 var index_8 = require("./typep/index");
+var index_9 = require("./listeproduit/index");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -37,7 +38,8 @@ var AppModule = /** @class */ (function () {
                 index_5.HomeComponent,
                 index_6.LoginComponent,
                 index_7.RegisterComponent,
-                index_8.TypepComponent
+                index_8.TypepComponent,
+                index_9.ListeproduitComponent
             ],
             providers: [
                 index_2.AuthGuard,
@@ -45,6 +47,8 @@ var AppModule = /** @class */ (function () {
                 index_4.AuthenticationService,
                 index_4.UserService,
                 index_4.TypepService,
+                index_4.UtilisateurService,
+                index_4.ProduitService,
                 index_3.JwtInterceptorProvider,
                 index_3.ErrorInterceptorProvider
             ],

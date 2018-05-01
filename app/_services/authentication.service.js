@@ -17,15 +17,15 @@ var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http) {
         this.http = http;
     }
-    AuthenticationService.prototype.login = function (username, password) {
-        return this.http.post(app_config_1.appConfig.apiUrl + '/users/authenticate', { username: username, password: password })
-            .map(function (user) {
+    AuthenticationService.prototype.login = function (utilisateur) {
+        return this.http.post(app_config_1.appConfig.apiUrl + '/utilisateur/authenticate', utilisateur)
+            .map(function (utilisateur2) {
             // login successful if there's a jwt token in the response
-            if (user && user.token) {
+            if (utilisateur2 && utilisateur2.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('currentUser', JSON.stringify(utilisateur2));
             }
-            return user;
+            return utilisateur2;
         });
     };
     AuthenticationService.prototype.logout = function () {

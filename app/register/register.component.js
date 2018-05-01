@@ -13,9 +13,9 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var index_1 = require("../_services/index");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(router, userService, alertService) {
+    function RegisterComponent(router, utilisateurService, alertService) {
         this.router = router;
-        this.userService = userService;
+        this.utilisateurService = utilisateurService;
         this.alertService = alertService;
         this.model = {};
         this.loading = false;
@@ -23,7 +23,7 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.loading = true;
-        this.userService.create(this.model)
+        this.utilisateurService.create(this.model)
             .subscribe(function (data) {
             _this.alertService.success('Registration successful', true);
             _this.router.navigate(['/login']);
@@ -38,7 +38,7 @@ var RegisterComponent = /** @class */ (function () {
             templateUrl: 'register.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router,
-            index_1.UserService,
+            index_1.UtilisateurService,
             index_1.AlertService])
     ], RegisterComponent);
     return RegisterComponent;

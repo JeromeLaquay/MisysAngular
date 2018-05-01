@@ -4,21 +4,22 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
 import { appConfig } from '../app.config';
+import { Utilisateur } from '../_models';
 
 @Injectable()
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string) {
-        return this.http.post<any>(appConfig.apiUrl + '/users/authenticate', { username: username, password: password })
-            .map(user => {
+    login(utilisateur: Utilisateur) {
+        return this.http.post<any>(appConfig.apiUrl + '/utilisateur/authenticate',utilisateur)
+            .map(utilisateur2 => {
                 // login successful if there's a jwt token in the response
-                if (user && user.token) {
+                if (utilisateur2 && utilisateur2.token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('currentUser', JSON.stringify(utilisateur2));
                 }
 
-                return user;
+                return utilisateur2;
             });
     }
 
